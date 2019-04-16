@@ -37,6 +37,19 @@ def handle_message(event):
     message = TextSendMessage(text=event.message.text)
     line_bot_api.reply_message(event.reply_token, message)
 
+                         
+bot.on('message', function(event) {
+  if (event.message.type = 'text') {
+    var msg = event.message.text;
+    event.reply(msg).then(function(data) {
+      // success 
+      console.log(msg);
+    }).catch(function(error) {
+      // error 
+      console.log('error');
+    });
+  }
+});
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
